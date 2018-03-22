@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Currency Converter Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="resources/libs/jquery/jquery.js"></script>
+
+<script src="resources/libs/angular/angular.js"></script>
+<script src="resources/libs/angular/angular-route.min.js"></script>
+<script src="resources/libs/angular/angular-ui-router.min.js"></script>
+
+
+<script src="resources/libs/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+
+
+<link rel="stylesheet" href="resources/libs/date-time-picker/angularjs-datetime-picker.css" />
+<script src="resources/libs/date-time-picker/angularjs-datetime-picker.js"></script>
+
+<script src="resources/libs/angular/ui-router/angular-ui-router.min.js"></script>
+
+
+<script src="resources/js/app.js"></script>
+<script src="resources/js/app.config.js"></script>
+
+<script src="resources/libs/angular/angular-toaster/1.1.0/toaster.min.js"></script>
+
+
+<script src="resources/js/controllers/controllers.js"></script>
+<script src="resources/js/services/services.js"></script>
+<script src="resources/js/directives/directives.js"></script>
+
+<script src="resources/js/controllers/currency-controller.js"></script>
+<script src="resources/js/controllers/login-controller.js"></script>
+
+<script src="resources/js/services/currency-service.js"></script>
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+
+
+
+<body ng-app="currencyApp" ng-controller="CurrencyCtrl">
+
+
+  <div class="topnav">
+     <div class="navbar-header">
+       <a class="active"><h3>Currency converter Application</h3></a>
+     </div>
+     <a href="signup.html">Sign-Up</a></li>
+     
+</div>
+</div>
+
+
+
+<div class="container">
+<div class="form-horizontal" >
+<br>
+  <h3 >Login</h3>
+  <br>
+
+<div class="col-lg-12 col-md-12">
+<form name="form" role="form">
+
+      <div class="form-group" ng-class="{ 'has-error': form.uname.$dirty && form.uname.$error.required }">
+      <label for="uname" class="control-label col-xs-4 col-md-2">User Name<span class="mandatory">*</span></label>
+      <div class="col-xs-5">
+            <input type="text" class="form-control" name="uname" id="uname" placeholder="User Name" ng-model="login.uname" required></div>
+      <span ng-show="form.uname.$dirty && form.uname.$error.required" class="help-block">Please enter user name</span>
+      </div>
+
+
+      <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+      <label for="password" class="control-label col-xs-4 col-md-2">Password<span class="mandatory">*</span></label>
+      <div class="col-xs-5">
+           <input type="password" class="form-control" name="password" id="password" placeholder="Password" ng-model="login.password" required></div>
+      <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Please enter password</span>
+      </div>
+           
+          
+      <br>
+      <div class="col-sm-offset-3 col-sm-12">
+      <div class="form-group">  
+          <button type="submit" ng-disabled="form.$invalid"  id="loginBtn"  ng-click="login(login);">Submit</button>
+          <button type="reset" value="Reset">Reset</button>  
+      </div>  
+      </div>
+
+</form>  
+</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</body>
+</html>

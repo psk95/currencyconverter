@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="resources/css/simple-sidebar.css" rel="stylesheet">
+
+<link href="resources/css/custome_style.css" rel="stylesheet">
+<link href="resources/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/angular-toaster/toaster.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="resources/css/quill/quill.snow_1.1.5.css">
+
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+
+<script src="resources/libs/jquery/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="resources/libs/bootstrap/bootstrap.min.js"></script>
+
+
+<script src="resources/libs/angular/angular.js"></script>
+<script src="resources/libs/angular/angular-route.min.js"></script>
+<script src="resources/libs/angular/angular-ui-router.min.js"></script>
+<script src="resources/libs/angular/angular-resource.min.js"></script>
+<script src="resources/libs/angular/angular-cookies.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.7/angular-filter.js"></script>
+<script src="resources/libs/angular/ngStorage/ngStorage.js"></script>
+
+
+<script src="resources/libs/angular/exceptionhandle/exceptionhandle.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+ <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ 
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+<script src="resources/libs/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+
+<!-- Date time picker js and css -->
+<link rel="stylesheet" href="resources/libs/date-time-picker/angularjs-datetime-picker.css" />
+<script src="resources/libs/date-time-picker/angularjs-datetime-picker.js"></script>
+
+<script src="resources/libs/report-csv/ng-csv.min.js"></script>
+
+
+<script src="resources/libs/angular/ui-router/angular-ui-router.min.js"></script>
+
+<script src="resources/js/app.js"></script>
+<script src="resources/js/app.config.js"></script>
+
+
+<script src="resources/libs/angular/angular-toaster/1.1.0/toaster.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
+<script src="resources/libs/moment/moment-timezone-with-data-2010-2020.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+
+<script src="resources/js/controllers/controllers.js"></script>
+<script src="resources/js/services/services.js"></script>
+<script src="resources/js/directives/directives.js"></script>
+
+
+<script src="resources/js/controllers/login-controller.js"></script>
+<script src="resources/js/controllers/currency-controller.js"></script>
+
+
+<script src="resources/js/services/currency-service.js"></script>
+
+</head>
+
+<body ng-app="currencyApp" ng-controller="LoginCtrl">
+
+<div>
+
+<div class="topnav">
+     <div class="navbar-header">
+       <a class="active"><h3>Currency converter Application</h3></a>
+</div>
+</div>
+
+<div class="container">
+
+  <form class="form-horizontal" name="currencyform">
+  <br>
+  <h3>Sign Up</h3>
+  <br>
+
+  	<div class="form-group" ng-class="{ 'has-error': (currencyform.uname.$error.required || currencyform.uname.$error.uname) && currencyform.uname.$dirty}">
+         <label for="uname" class="control-label col-xs-4 col-md-2">Username <span class="mandatory">*</span></label>
+         <div class="col-xs-5">
+         <input type="uname" name="uname"  class="form-control" ng-model="currency.uname" maxlength="40" ng-change="resetservervalidation('valid_email')" id="uname" email-available required>
+          </div>
+          <span class="help-block" style="color: #a94442;" ng-if="currencyform.$error.valid_email">Email ID Already Used</span>
+          <span class="help-block" ng-show="(currencyform.uname.$error.required || currencyform.uname.$error.uname) && currencyform.uname.$dirty">Please enter username</span>
+          </div>
+
+           
+
+         <div class="form-group" ng-class="{'has-error': (currencyform.password.$error.required || currencyform.password.$error.pattern || currencyform.password.$error.minlength) && currencyform.password.$dirty}">
+      	<label for="password" class="control-label col-xs-4 col-md-2">Password <span class="mandatory">*</span></label>
+      	<div class="col-sm-3">          
+        <input type="password" ng-model="currency.password"class="form-control" id="password" placeholder="Enter password" name="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" maxlength="40">
+        <span ng-show="changepassword_form.password.$error.pattern" class="help-block">
+		Password must be 8 characters long and should contain one number,one character and one special character</span>
+		<span class="help-block" data-ng-show="currencyform.$submitted || currencyform.password.$touched">
+	    <span class="help-block" data-ng-show="currencyform.password.$error.required && currencyform.password.$dirty">Please enter password</span></span> 
+        </div>
+         </div>
+
+
+
+        <div class="form-group" ng-class="{ 'has-error': currencyform.firstname.$dirty && currencyform.firstname.$error.required }">
+        <label for="firstname"  class="control-label col-xs-4 col-md-2"> Name <span class="mandatory">*</span></label>
+        <div class="col-xs-5">
+            <input type="text" name="firstname" class="form-control" id="firstname" ng-model="currency.name" maxlength="40" required>
+        </div>
+        <span ng-show="currencyform.firstname.$dirty && currencyform.firstname.$error.required" class="help-block">Please enter name</span>
+         </div>
+
+           
+         <div class="form-group" ng-class="{ 'has-error': currencyform.city.$dirty && currencyform.city.$error.required }">
+         <label for="city"  class="control-label col-xs-4 col-md-2">City<span class="mandatory">*</span></label>
+         <div class="col-xs-5">
+              <input type="text" name="city" class="form-control" id="city" ng-model="currency.city" maxlength="40" required>
+         </div>
+		<span ng-show="currencyform.city.$dirty && currencyform.city.$error.required" class="help-block">Please enter city</span>
+          </div>
+
+
+       <div class="form-group" ng-class="{ 'has-error': currencyform.dob.$dirty && currencyform.dob.$error.required }">
+      <label for="dob"  class="control-label col-xs-4 col-md-2">Date of Birth</label>
+      <div class="col-sm-3">
+         <input type="text"  class="form-control"  id="datepicker"/>
+        </div>
+      </div>
+            
+
+      <div class="form-group" ng-class="{ 'has-error': currencyform.postcode.$dirty && currencyform.postcode.$error.required }">
+      <label for="post code"  class="control-label col-xs-4 col-md-2">Post Code</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control"  ng-model="currency.postcode" maxlength="40"></p>
+        </div>
+      </div>
+
+
+       
+
+ <div class="form-group" ng-class="{ 'has-error': currencyform.address.$dirty && currencyform.address.$error.required }">
+        <label for="address"  class="control-label col-xs-4 col-md-2"> Address <span class="mandatory">*</span></label>
+        <div class="col-xs-5">
+            <input type="text" name="address" class="form-control" id="address" ng-model="currency.address" maxlength="40" required>
+        </div>
+        <span ng-show="currencyform.address.$dirty && currencyform.address.$error.required" class="help-block">Please enter address</span>
+         </div>
+
+     <div class="form-group" ng-class="{ 'has-error': currencyform.country.$dirty && currencyform.country.$error.required }">
+      <label for="country"  class="control-label col-xs-4 col-md-2">Country <span class="mandatory">*</span></label>
+      <div class="col-sm-3">
+      <select class="form-control" id="sel1" ng-model="currency.country" required>
+     <option value="">Select your country</option>
+                                <option value="AF">Afghanistan</option>
+	                                       <option value="Åland Islands">Åland Islands</option>
+                                           <option value="AL">Albania</option>
+                                           <option value="DZ">Algeria</option>
+	                                       <option value="AS">American Samoa</option>
+	                                       <option value="AD">Andorra</option>
+	                                       <option value="AO">Angola</option>
+	                                       <option value="AI">Anguilla</option>
+	                                       <option value="AQ">Antarctica</option>
+	                                       <option value="AG">Antigua and Barbuda</option>
+	                                       <option value="AR">Argentina</option>
+	                                       <option value="AM">Armenia</option>
+	                                       <option value="AW">Aruba</option>
+	                                       <option value="AU">Australia</option>
+	                                       <option value="AT">Austria</option>
+	                                       <option value="AZ">Azerbaijan</option>
+                                         
+	                                       <option value="BR">Brazil</option>
+	                                       <option value="IO">British Indian Ocean Territory</option>
+	                                       <option value="BN">Brunei Darussalam</option>
+	                                       <option value="BG">Bulgaria</option>
+	                                       <option value="BF">Burkina Faso</option>
+	                                       <option value="BI">Burundi</option>
+	                                      
+	                                       <option value="CR">Costa Rica</option>
+	                                       <option value="CI">Côte d'Ivoire</option>
+	                                       <option value="HR">Croatia</option>
+	                                       <option value="CU">Cuba</option>
+	                                       <option value="CW">Curaçao</option>
+	                                       <option value="CY">Cyprus</option>
+	                                       <option value="CZ">Czech Republic</option>
+	                                       <option value="DK">Denmark</option>
+	                                       <option value="DJ">Djibouti</option>
+	                                       <option value="DM">Dominica</option>
+	                                       <option value="DO">Dominican Republic</option>
+	                                       <option value="EC">Ecuador</option>
+	                                       <option value="EG">Egypt</option>
+	                                       <option value="SV">El Salvador</option>
+	                                       <option value="GQ">Equatorial Guinea</option>
+	                                       <option value="ER">Eritrea</option>
+	                                       <option value="EE">Estonia</option>
+	                                       <option value="ET">Ethiopia</option>
+	                                       <option value="FK">Falkland Islands (Malvinas)</option>
+	                                       <option value="FO">Faroe Islands</option>
+	                                       <option value="FJ">Fiji</option>
+	                                       <option value="FI">Finland</option>
+	                                       <option value="FR">France</option>
+	                                       <option value="GF">French Guiana</option>
+	                                       <option value="PF">French Polynesia</option>
+	                                       <option value="TF">French Southern Territories</option>
+	                                       <option value="GA">Gabon</option>
+	                                       <option value="GM">Gambia</option>
+	                                       <option value="GE">Georgia</option>
+	                                       <option value="DE">Germany</option>
+	                                       <option value="GH">Ghana</option>
+	                                       <option value="GI">Gibraltar</option>
+	                                       <option value="GR">Greece</option>
+	                                       <option value="GL">Greenland</option>
+	                                       <option value="GD">Grenada</option>
+	                                       <option value="GP">Guadeloupe</option>
+	                                       <option value="GU">Guam</option>
+	                                       <option value="GT">Guatemala</option>
+	                                       <option value="GG">Guernsey</option>
+	                                       <option value="GN">Guinea</option>
+	                                       <option value="GW">Guinea-Bissau</option>
+	                                       <option value="GY">Guyana</option>
+	                                       <option value="HT">Haiti</option>
+	                                       <option value="HM">Heard Island and McDonald Islands</option>
+	                                       <option value="VA">Holy See (Vatican City State)</option>
+	                                       <option value="HN">Honduras</option>
+	                                       <option value="HK">Hong Kong</option>
+	                                       <option value="HU">Hungary</option>
+	                                       <option value="IS">Iceland</option>
+	                                       <option value="IN">India</option>
+	                                       <option value="ID">Indonesia</option>
+	                                       <option value="IR">Iran, Islamic Republic of</option>
+	                                       <option value="IQ">Iraq</option>
+	                                       <option value="IE">Ireland</option>
+	                                      
+	                                       <option value="LS">Lesotho</option>
+	                                       <option value="LR">Liberia</option>
+	                                       <option value="LY">Libya</option>
+	                                       <option value="LI">Liechtenstein</option>
+	                                       <option value="LT">Lithuania</option>
+	                                       <option value="LU">Luxembourg</option>
+	                                       <option value="MO">Macao</option>	                                 
+	                                       <option value="SG">Singapore</option>
+	                                       <option value="SE">Sweden</option>
+	                                       <option value="CH">Switzerland</option>
+	                                       
+	                                       <option value="TN">Tunisia</option>
+	                                       <option value="TR">Turkey</option>
+	                                       <option value="TM">Turkmenistan</option>
+	                                       <option value="TC">Turks and Caicos Islands</option>
+	                                       <option value="TV">Tuvalu</option>
+	                                       <option value="UG">Uganda</option>
+	                                       <option value="UA">Ukraine</option>
+	                                       <option value="AE">United Arab Emirates</option>
+	                                       <option value="GB">United Kingdom</option>
+	                                       <option value="US">United States</option>
+	                                       <option value="UM">United States Minor Outlying Islands</option>
+	                                       <option value="UY">Uruguay</option>
+	                                       <option value="UZ">Uzbekistan</option>
+	                                       <option value="VU">Vanuatu</option>
+	                                       <option value="VE">Venezuela, Bolivarian Republic of</option>
+	                                       <option value="VN">Viet Nam</option>
+	                                       <option value="VG">Virgin Islands, British</option>
+	                                       <option value="VI">Virgin Islands, U.S.</option>
+	                                       <option value="WF">Wallis and Futuna</option>
+	                                        
+       </select>
+       <span ng-show="currencyform.country.$dirty && currencyform.country.$error.required" class="help-block">Country is required</span>
+      </div>
+       </div> 
+    
+   
+       <div class="form-group">
+       <label for="Login ID" class="control-label col-xs-4 col-md-2"></label>
+       <div class="col-xs-5">
+       <button ng-disabled="currencyform.$invalid || issaving" ng-click="registeruserData(currency)" >Save</button>
+       </div>
+       </div>
+</form>
+</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</html>
